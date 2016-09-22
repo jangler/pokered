@@ -276,9 +276,13 @@ OverworldLoopLessDelay::
 .moveAhead2
 	ld hl,wFlags_0xcd60
 	res 2,[hl]
+	ld a,[hJoyHeld]
+	and $2
+	jr nz,.skipBikeCheck
 	ld a,[wWalkBikeSurfState]
 	dec a ; riding a bike?
 	jr nz,.normalPlayerSpriteAdvancement
+.skipBikeCheck
 	ld a,[wd736]
 	bit 6,a ; jumping a ledge?
 	jr nz,.normalPlayerSpriteAdvancement
