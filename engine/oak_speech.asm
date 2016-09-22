@@ -48,6 +48,16 @@ OakSpeech:
 	ld a,1
 	ld [wItemQuantity],a
 	call AddItemToInventory  ; give one potion
+
+	; give level 2 magikarp
+	ld a, MAGIKARP
+	ld [wcf91], a
+	ld a, 2
+	ld [wCurEnemyLVL], a
+	ld a, $80 ; prevent naming
+	ld [wMonDataLocation], a
+	call AddPartyMon
+
 	ld a,[wDefaultMap]
 	ld [wDestinationMap],a
 	call SpecialWarpIn
