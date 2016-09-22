@@ -35,9 +35,9 @@ DungeonWarpData:
 ;	FLYWARP_DATA [Map Width][Y-pos][X-pos]
 ;	db Tileset_id
 FirstMapSpec:
-	db REDS_HOUSE_2F
-	FLYWARP_DATA REDS_HOUSE_2F_WIDTH,6,3
-	db REDS_HOUSE_2
+	db FUCHSIA_CITY
+	FLYWARP_DATA FUCHSIA_CITY_WIDTH,$4,$12
+	db OVERWORLD
 
 TradeCenterSpec1:
 	db TRADE_CENTER
