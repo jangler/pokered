@@ -3521,6 +3521,7 @@ Divide::
 ; screen unless the player presses the A/B button or the delay is turned off
 ; through the [wd730] or [wLetterPrintingDelayFlags] flags.
 PrintLetterDelay::
+	ret ; not anymore!
 	ld a,[wd730]
 	bit 6,a
 	ret nz
