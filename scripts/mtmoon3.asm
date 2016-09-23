@@ -278,6 +278,7 @@ MtMoon3Text6:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	SetEvent EVENT_GOT_DOME_FOSSIL
+	SetEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
 	ld a, $4
 	ld [wMtMoon3CurScript], a
 	ld [wCurMapScript], a
@@ -306,6 +307,7 @@ MtMoon3Text7:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 	SetEvent EVENT_GOT_HELIX_FOSSIL
+	SetEvent EVENT_BEAT_MT_MOON_EXIT_SUPER_NERD
 	ld a, $4
 	ld [wMtMoon3CurScript], a
 	ld [wCurMapScript], a
