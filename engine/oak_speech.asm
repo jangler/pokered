@@ -49,7 +49,7 @@ OakSpeech:
 	ld [wItemQuantity],a
 	call AddItemToInventory  ; give one potion
 
-	; give player level 2 magikarp with empty name
+	; give player level 2 magikarp with empty name and no moves
 	ld a, MAGIKARP
 	ld [wcf91], a
 	ld a, 2
@@ -59,6 +59,20 @@ OakSpeech:
 	call AddPartyMon
 	ld hl, wPartyMonNicks
 	ld [hl], "@"
+	ld hl, wPartyMon1Moves
+	ld a, SPLASH
+	ld [hli], a
+	ld a, 0
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ld hl, wPartyMon1PP
+	ld a, 40
+	ld [hli], a
+	ld a, 0
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
 
 	; set flags and disable intro scripts
 	ld a, STARTER1
