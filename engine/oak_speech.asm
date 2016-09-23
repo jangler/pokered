@@ -49,7 +49,7 @@ OakSpeech:
 	ld [wItemQuantity],a
 	call AddItemToInventory  ; give one potion
 
-	; give level 2 magikarp
+	; give player level 2 magikarp with empty name
 	ld a, MAGIKARP
 	ld [wcf91], a
 	ld a, 2
@@ -57,6 +57,40 @@ OakSpeech:
 	ld a, $80 ; prevent naming
 	ld [wMonDataLocation], a
 	call AddPartyMon
+	ld hl, wPartyMonNicks
+	ld [hl], "@"
+
+	; set flags and disable intro scripts
+	ld a, STARTER1
+	ld [wRivalStarter], a
+	SetEvent EVENT_OAK_GOT_PARCEL
+	SetEvent EVENT_GOT_POKEDEX
+	SetEvent EVENT_1ST_ROUTE22_RIVAL_BATTLE
+	SetEvent EVENT_ROUTE22_RIVAL_WANTS_BATTLE
+	ld a, $5
+	ld [wPalletTownCurScript], a
+	ld a, $11
+	ld [wOaksLabCurScript], a
+	ld a, $2
+	ld [wViridianMarketCurScript], a
+	ld a, HS_OAKS_LAB_OAK_1
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_POKEDEX_1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_POKEDEX_2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_LYING_OLD_MAN
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_OLD_MAN
+	ld [wMissableObjectIndex], a
+	predef ShowObject
+	ld a, HS_ROUTE_22_RIVAL_1
+	ld [wMissableObjectIndex], a
+	predef ShowObject
 
 	ld a,[wDefaultMap]
 	ld [wDestinationMap],a
