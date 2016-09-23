@@ -23,6 +23,8 @@ PewterCityScript0:
 PewterCityScript_1925e:
 	CheckEvent EVENT_BEAT_BROCK
 	ret nz
+	CheckEvent EVENT_BEAT_ROUTE_3_TRAINER_6
+	ret nz
 	ld hl, CoordsData_19277
 	call ArePlayerCoordsInArray
 	ret nc
