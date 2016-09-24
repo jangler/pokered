@@ -106,6 +106,12 @@ OakSpeech:
 	ld [wMissableObjectIndex], a
 	predef ShowObject
 
+	; mark pallet town as visited so that fly doesn't glitch out
+	ld hl, wTownVisitedFlag
+	ld a, [hl]
+	set 0, a
+	ld [hl], a
+
 	ld a,[wDefaultMap]
 	ld [wDestinationMap],a
 	call SpecialWarpIn
