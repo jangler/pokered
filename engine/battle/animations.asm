@@ -399,11 +399,7 @@ MoveAnimation:
 	jr nz, .animationsDisabled
 	call ShareMoveAnimations
 	call PlayAnimation
-	jr .next4
 .animationsDisabled
-	ld c, 30
-	call DelayFrames
-.next4
 	call PlayApplyingAttackAnimation ; shake the screen or flash the pic in and out (to show damage)
 .animationFinished
 	call WaitForSoundToFinish
