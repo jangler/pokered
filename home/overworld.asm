@@ -284,6 +284,11 @@ OverworldLoopLessDelay::
 	jr nz, .normalPlayerSpriteAdvancement
 	call DoBikeSpeedup
 .normalPlayerSpriteAdvancement
+	ldh a, [hJoyHeld]
+	and B_BUTTON
+	jr z, .notRunning
+	call DoBikeSpeedup
+.notRunning
 	call AdvancePlayerSprite
 	ld a, [wWalkCounter]
 	and a
